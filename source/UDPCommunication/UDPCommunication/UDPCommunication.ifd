@@ -1,0 +1,116 @@
+{
+  "kind": "discovery#restDescription",
+  "discoveryVersion": "v1",
+  "id": "UDPCommunication",
+  "name": "UDPCommunication",
+  "version": "1.0",
+  "protocol": "dll",
+  "baseUrl": null,
+  "basePath": "UDPCommunication",
+  "auth": {},
+  "dependencies": [
+    "UDPCommunication.dll"
+  ],
+  "schemas": {
+    "UDPCommunicationIA": {
+      "id": "UDPCommunicationIA",
+      "type": "object",
+      "properties": {
+        "LastMessage": {
+            "title": "Last message received",
+            "readonly":  true,
+            "type": "string"          
+        },
+        "Logs": {
+            "title": "Logs",
+            "readonly": true,
+            "type": "string",
+            "description": "Logs"
+        }
+      }
+    }
+  },
+  "resources": {
+    "UDPCommunicationIA": {
+      "title": "UDPCommunicationIA",
+      "isInterfaceAsset": true,
+      "methods": {        
+        "StartListening": {
+          "title": "Start listening",
+          "description": "Start listening on a dedicated UDP port.",
+          "response": {
+            "type": "null"
+          },
+          "parameters": {
+            "port_": {
+                "type": "integer",
+                "title":  "Port",
+              "required": true
+            }
+          }
+        },
+        "SendMessage": {
+          "title": "Send message",
+          "description": "Send an ASCII message to specified address and port. ",
+          "response": {
+            "type": "null"
+          },
+          "parameters": {
+            "address_": {
+                "type": "string",
+                "title":  "Address",
+              "required": true
+            },
+            "port_": {
+                "type": "integer",
+                "title": "Port",
+                "required": true
+            },
+            "message_": {
+                "type": "string",
+                "title": "Message",
+                "required": true
+            }
+          }
+        },
+        "SendHexMessage": {
+            "title": "Send hex message",
+            "description": "Send an hexadecimal message to specified address and port. ",
+            "response": {
+                "type": "null"
+            },
+            "parameters": {
+                "address_": {
+                    "type": "string",
+                    "title": "Address",
+                    "required": true
+                },
+                "port_": {
+                    "type": "integer",
+                    "title": "Port",
+                    "required": true
+                },
+                "message_": {
+                    "type": "string",
+                    "title": "Message",
+                    "required": true
+                }
+            }
+        }
+      },
+      "events": {
+        "MessageReceived": {
+            "id": "MessageReceived",
+            "title":  "Message received",
+            "properties": {
+                "Message": {
+                    "title": "Message",
+                    "type": "string",
+                    "description": "Message received"
+                }
+            }
+        }
+      }
+    }
+  }
+}
