@@ -1,0 +1,1 @@
+<a name="1.0"></a># [1.0](https://github.com/intuiface/FaceDetectionIA/releases/tag/1.0) (2020-05-27)### Features* **UDP Communication Interface Asset:**    * Receives data over UDP   * Sends ASCII or HEX data over UDP
